@@ -1,0 +1,59 @@
+.product-container {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 20px;
+    height: 500px;
+    background-color: white;
+    padding-top: 8px;
+    margin-top: 15px;
+    padding: 16px;
+}
+
+.container-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4px;
+   margin-bottom: 15px;
+}
+
+.list-info {
+
+    background-color: rgb(223, 218, 213);
+    border-radius: 15px;
+    padding: 5px;
+}
+.price-text, .total-text {
+    margin: 4px;
+    font-family: "Shadows Into Light", cursive;
+}
+
+.category-option {
+   border: none;
+   background-color: inherit;
+   font-weight: bold;
+}
+
+.table-list {
+    height: 76%;
+}
+
+.table-list table {
+    table-layout: fixed;
+    text-align: center;
+}
+
+.botton-action {
+  margin-left: 2%;
+}
+
+
+.botton-action  button {
+    border: none;
+    background-color: rgba(174, 159, 159, 0.721);
+    width:15%;
+    padding: 4px;
+    border-radius: 4px;
+    margin: 9px;
+}
+

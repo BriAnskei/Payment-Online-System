@@ -1,0 +1,16 @@
+
+
+.sidebar {
+    background-color: rgb(233, 233, 233) !important;
+    height: 100vh;
+
+    
+}
+
+.sidebar div {
+    background-color: inherit !important;
+}
+
+.sidebar #logo-img {
+    width: 18px;
+}

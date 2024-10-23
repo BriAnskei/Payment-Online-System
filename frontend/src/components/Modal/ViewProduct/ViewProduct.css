@@ -1,0 +1,53 @@
+.modal-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000090;
+    display: grid;
+}
+
+.title{
+    display: flex;
+    justify-content: right;
+    margin: -5px;
+}
+
+.title img {
+    cursor: pointer;
+    width: 16px;
+}
+
+.modal-container {
+    place-self: center;
+    width: max(23vw, 330px);
+    background-color: white;
+   
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    /* animation: fadeIn 0.5s; */
+}
+
+.modal-container #body-image {
+height: 152px;
+width: 100%;
+
+}
+
+.modal-container .product-disc h4 {
+    font-family: "Shadows Into Light", cursive;
+}
+
+.modal-container .product-disc p {
+   margin-left: 12%;
+}
+
+.modal-container .product-disc p b {
+    font-weight: 700;
+}

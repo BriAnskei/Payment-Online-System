@@ -1,0 +1,79 @@
+.form-container {
+    padding: 10px;
+     border-radius: 3px;
+     width: 50vw;
+
+     margin: 10px auto;
+     box-sizing: border-box;
+     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     max-width: 800px; /* Set a max-width for larger screens */
+     min-width: 300px; /* Set a min-width for smaller screens */
+}
+
+.header {
+  width: 90%;
+  margin: auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-family: "Roboto Slab", serif;
+   flex-wrap: wrap;
+}
+
+.header h5 {
+  font-size: larger;
+  font-weight: 400;
+}
+
+.form-container hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #333;  /* old IE */
+  background-color: #333;  /* Modern Browsers */
+}
+
+.content {
+  display:  flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  height: 15vh;
+}
+
+.content .left, .right {
+  width: 50%;
+  
+}
+
+.content .left {
+  display: flex;
+  flex-direction: column; /* Stacks the children vertically */
+
+}
+
+.left input {
+  width: 30%;
+}
+
+.left .range {
+  margin-left: 34px;
+
+}
+
+.left button {
+ width: 50%;
+ border: none;
+ border-radius: 12px;
+ height: 30px;
+}
+
+.left .fee {
+
+  border-radius: 18px;
+  text-align:center;
+  font-size: medium;
+}

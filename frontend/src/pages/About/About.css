@@ -1,0 +1,40 @@
+.about-container {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 20px;
+    height: 500px;
+    background-color: white;
+    padding-top: 8px;
+    margin-top: 15px;
+    padding: 16px;
+}
+
+.tittle {
+    margin: 13px 0 19px 5vw;
+}
+
+
+.tittle h3 {
+    font-weight:600;
+    margin: 0;
+}
+
+.discription {
+    width: 50vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.discription img {
+    width: 14vw;
+}
+
+
+.about-footer {
+    margin-top: 60px;
+    margin: auto;
+    width: 90%;
+}
+

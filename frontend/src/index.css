@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap');
+
+
+body {
+min-height: 100dvh;
+background-color: rgba(156, 155, 153, 0.479);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", system-ui;
+}
+

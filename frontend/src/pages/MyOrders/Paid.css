@@ -1,0 +1,52 @@
+.paid {
+    background-color: white;
+    margin: 50px auto;
+    width: 70%;
+    height: 500px;
+   
+}
+
+
+.paids-paid {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 7px 25px;
+ border-radius: 8px;
+
+ margin-bottom: 16px;
+ background-color: rgba(177, 177, 182, 0.222);
+ box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.paids-paid img {
+    width: 50px;
+}
+
+
+
+.container {
+    max-height: 70%;
+   overflow: auto;
+
+}
+
+
+
+
+.paids-paid button {
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: rgba(174, 159, 159, 0.721);
+   margin-left: 10px;
+}
+
+
+.paid-title {
+    margin: 5px 20px;
+    padding: 9px;
+}
+
+
+

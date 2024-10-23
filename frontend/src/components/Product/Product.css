@@ -1,0 +1,33 @@
+.cross, .edit,.view {
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+.view img {
+    width: 8%;
+}
+
+.cart-items img {
+    width: 21%;
+}
+
+tr button {
+    border: none;
+    background-color: inherit;
+    width: 8%;
+}
+
+tr button img{
+   width: 100%;
+}
+
+tr td #product-img {
+    width: 20%;
+    height: 30px;
+    margin: 0;
+}
+
+tr {
+    font-size: 13px;
+}
