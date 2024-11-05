@@ -134,7 +134,6 @@ const ContextProvider: React.FC<ContextProviderProps> = (props) => {
     }
   }
 
-  // Cart PRoducts Information functions
   const cartTotalAmount = () => {
     // Calculate all the total price of the product in cart. If there is no product return 0.
     const sumAmount = products.reduce(

@@ -16,11 +16,13 @@ const Paid = () => {
   }
   const { serverURL, token, priceAmount } = context;
   const [paid, setPaid] = useState<PaidProucts[]>([]);
+  const [range, setRange] = useState(0);
 
   const [reciept, setReciept] = useState<Reciept>({
     fullname: "",
     data: [],
     amount: 0,
+
     date: new Date(),
   });
 
@@ -39,6 +41,7 @@ const Paid = () => {
 
     if (response.data.success) {
       setPaid(response.data.data); // get the Data
+      setRange(response.data.priceRange);
     } else {
       alert("Error fetching products");
     }
@@ -49,6 +52,7 @@ const Paid = () => {
       fetchPayments();
     }
   }, []);
+  console.log(range);
 
   // Setter function for the reciept modal
   const recieptHandler = (

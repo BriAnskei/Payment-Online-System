@@ -5,6 +5,7 @@ import axios from "axios";
 
 const PlaceOrder = () => {
   const [currency, setCurrentcy] = useState("USD");
+  const [priceRange, setPriceRange] = useState(0);
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
@@ -25,6 +26,7 @@ const PlaceOrder = () => {
   }
 
   const { cartTotalAmount, priceAmount, products, serverURL, token } = context;
+
   const currencySymbol = currency === "PHP" ? "₱" : "$";
 
   const handleChange = (e: any) => {
@@ -35,17 +37,28 @@ const PlaceOrder = () => {
     }));
   };
 
+  // returns the totol amount based on currency
   const totalAmount = () => {
     return currency === "PHP" ? cartTotalAmount() * 58 : cartTotalAmount();
   };
 
+  // calculate price range
   const totalPrice = () => {
-    const itemsPrice = products.reduce((total, items) => {
-      return total + items.price * items.quantity;
-    }, 0);
-
-    return itemsPrice * 0.05;
+    return cartTotalAmount() * (priceRange / 100);
   };
+
+  useEffect(() => {
+    async function fetchPriceRange() {
+      const response = await axios.post(`${serverURL}/api/config/pricerange`);
+      console.log(response);
+      if (response.data.success) {
+        setPriceRange(response.data.range);
+      } else {
+        console.log("Error fetching price range");
+      }
+    }
+    fetchPriceRange();
+  }, []);
 
   const placePayment = async (e: any) => {
     e.preventDefault();
@@ -175,7 +188,7 @@ const PlaceOrder = () => {
                   <p>Subtotal</p>
                   <p>
                     {currencySymbol}
-                    {priceAmount(totalAmount().toString())}
+                    {priceAmount(totalAmount().toFixed(2).toString())}
                   </p>
                 </div>
                 <hr />
@@ -183,15 +196,18 @@ const PlaceOrder = () => {
                   <p>
                     Payment Fee{" "}
                     <span>
-                      <b>5%</b> processing fee will be added to the total
-                      purchase price
+                      <b>{priceRange}%</b> processing fee will be added to the
+                      total purchase price
                     </span>
                   </p>
                   <p>
                     {currencySymbol}{" "}
-                    {totalAmount() === 0
-                      ? 0
-                      : totalPrice() * (currency === "PHP" ? 58 : 1)}
+                    {priceAmount(
+                      (totalAmount() === 0
+                        ? 0
+                        : totalPrice() * (currency === "PHP" ? 58 : 1)
+                      ).toFixed(2)
+                    )}
                   </p>
                 </div>
                 <hr />
@@ -202,7 +218,9 @@ const PlaceOrder = () => {
                       (
                         totalAmount() +
                         totalPrice() * (currency === "PHP" ? 58 : 1)
-                      ).toString()
+                      )
+                        .toFixed(2)
+                        .toString()
                     )}
                   </b>
                 </div>
@@ -229,3 +247,6 @@ const PlaceOrder = () => {
 };
 
 export default PlaceOrder;
+function fetchPriceRange() {
+  throw new Error("Function not implemented.");
+}

@@ -1,9 +1,8 @@
 import express from "express";
 import authMiddleware from "../middleware/auth.js";
 import {
-  countOrders,
-  orderPayments,
   paidPayments,
+  paymentsData,
   placePayment,
   verifyPayment,
 } from "../controller/paymentController.js";
@@ -15,7 +14,6 @@ paymentRoutes.post("/paid", authMiddleware, paidPayments);
 paymentRoutes.post("/verify", verifyPayment);
 
 // Admin routes list
-paymentRoutes.post("/paidlist", orderPayments);
-paymentRoutes.get("/totalpaid", countOrders);
+paymentRoutes.post("/getdata", paymentsData);
 
 export default paymentRoutes;

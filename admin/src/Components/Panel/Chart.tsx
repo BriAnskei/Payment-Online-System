@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useRef } from "react";
+import { useContext, useRef } from "react";
 import Chart, { ChartConfiguration, GridLineOptions } from "chart.js/auto";
-import axios from "axios";
+
 import { StoreContext } from "../../context/StoreContext";
 
 const Graph = () => {
@@ -10,34 +10,11 @@ const Graph = () => {
   const context = useContext(StoreContext);
   if (!context) return <div>refresh the page.......</div>;
 
-  const { serverUrl } = context;
+  const { monthlyData } = context;
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await axios.post(
-        `${serverUrl}/api/payments/paidlist`,
-        {}
-      );
+  console.log(monthlyData);
 
-      if (response.data.success) {
-        const paymentList = response.data.data;
-
-        const monthlyData = new Array(12).fill(0);
-
-        paymentList.forEach((payment: { date: string; amount: number }) => {
-          const month = new Date(payment.date).getMonth();
-          monthlyData[month] += payment.amount;
-        });
-
-        updateChartData(monthlyData);
-      } else {
-        console.log("Error");
-      }
-    }
-    fetchData();
-  }, []);
-
-  const updateChartData = (monthlyData: number[]) => {
+  const updateChartData = (monthData: number[]) => {
     const config: ChartConfiguration = {
       type: "line",
       data: {
@@ -61,7 +38,7 @@ const Graph = () => {
             fill: true,
             backgroundColor: "rgba(0, 123, 255, 0.2)",
             borderColor: "#007bff",
-            data: monthlyData,
+            data: monthData,
           },
         ],
       },
@@ -111,6 +88,7 @@ const Graph = () => {
     }
   };
 
+  updateChartData(monthlyData);
   return (
     <div className="container">
       <div className="card flex-fill w-100 draggable">

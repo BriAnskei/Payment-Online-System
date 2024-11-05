@@ -6,7 +6,7 @@ const updateRange = async (req, res) => {
       {
         key: "priceIncreasePercentage",
       },
-      { value: req.body.percentage }
+      { value: req.body.value }
     );
     res.json({ success: true, data: updateConfig });
   } catch (error) {
@@ -15,4 +15,17 @@ const updateRange = async (req, res) => {
   }
 };
 
-export { updateRange };
+const getPriceRange = async (_, res) => {
+  try {
+    const data = await Config.findOne({
+      key: "priceIncreasePercentage",
+    });
+
+    res.json({ success: true, range: data.value });
+  } catch (error) {
+    console.log(error);
+    res.json({ succes: false, message: "Error" });
+  }
+};
+
+export { updateRange, getPriceRange };
